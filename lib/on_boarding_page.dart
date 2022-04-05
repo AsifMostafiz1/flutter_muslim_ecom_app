@@ -11,21 +11,25 @@ class OnBoardingPage extends StatefulWidget {
 }
 
 class _OnBoardingPageState extends State<OnBoardingPage> {
-  Container dotIndicator(index) {
-    return Container(
+  AnimatedContainer dotIndicator(index) {
+    return AnimatedContainer(
+      duration: Duration(microseconds: 400),
       margin: EdgeInsets.only(left: 5),
       height: 10,
       width: 10,
-      decoration: BoxDecoration(color: Colors.amber, shape: BoxShape.circle),
+      decoration: BoxDecoration(
+          color: _currentPageIndex==index? Colors.amber: Colors.grey,
+          shape: BoxShape.circle),
     );
   }
+
+  int _currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     SizeConfigure().init(context);
     double sizeV = SizeConfigure.blockSizeV!;
     double sizeH = SizeConfigure.blockSizeH!;
-    int currentPageIndex = 0;
 
     PageController _pageController = PageController(initialPage: 0);
     return Scaffold(
@@ -36,6 +40,11 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           Expanded(
             flex: 20,
             child: PageView.builder(
+              onPageChanged: (value) {
+                setState(() {
+                  _currentPageIndex = value;
+                });
+              },
               controller: _pageController,
               itemCount: splashScreenContent.length,
               itemBuilder: (context, index) => Column(
