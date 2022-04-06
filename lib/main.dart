@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_ecom_app/screens/on_boarding_page.dart';
+import 'package:islami_ecom_app/screens/sign_in_page.dart';
 
 
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
 
       ),
       debugShowCheckedModeBanner: false,
-      home: OnBoardingPage(),
+      home: SignInPage(),
     );
   }
 }
