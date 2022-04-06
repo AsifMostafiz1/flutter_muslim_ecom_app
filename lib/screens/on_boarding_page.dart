@@ -13,7 +13,7 @@ class OnBoardingPage extends StatefulWidget {
   _OnBoardingPageState createState() => _OnBoardingPageState();
 }
 
-bool _changePageContent = true;
+bool _changePageContent = false;
 
 class _OnBoardingPageState extends State<OnBoardingPage> {
 
@@ -149,13 +149,16 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         onBoardNavBtn(
             name: 'Skip',
             onPressed: () {
+              setState(() {
+                _changePageContent = true;
+              });
               // Navigator.push(
               //     context,
               //     MaterialPageRoute(
-              //         builder: (context) => SignInPage()));
-              Navigator.pushAndRemoveUntil(context,
-                  MaterialPageRoute(builder: (context) => SignInPage()), (
-                      route) => false);
+              // //         builder: (context) => SignInPage()));
+              // Navigator.pushAndRemoveUntil(context,
+              //     MaterialPageRoute(builder: (context) => SignInPage()), (
+              //         route) => false);
             }),
         Row(
             children: List.generate(

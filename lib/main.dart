@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_ecom_app/screens/on_boarding_page.dart';
+import 'package:islami_ecom_app/screens/sign_in_page.dart';
 
 
 void main() {
@@ -11,9 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData.light().copyWith(
+        primaryColor: Colors.amber,
+
+      ),
       debugShowCheckedModeBanner: false,
-      home: OnBoardingPage(),
+      home: SignInPage(),
     );
   }
 }
