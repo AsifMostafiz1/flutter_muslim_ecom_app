@@ -13,7 +13,7 @@ class OnBoardingPage extends StatefulWidget {
   _OnBoardingPageState createState() => _OnBoardingPageState();
 }
 
-bool _changePageContent = false;
+bool _changePageContent = true;
 
 class _OnBoardingPageState extends State<OnBoardingPage> {
 
