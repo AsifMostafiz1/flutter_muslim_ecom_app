@@ -15,7 +15,8 @@ dependencies:
 
 
   cupertino_icons: ^1.0.2
-  blur: ^3.0.0
+  flutter_otp: ^0.3.2
+  pin_code_fields: ^7.4.0
 
 dev_dependencies:
   flutter_test:

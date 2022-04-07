@@ -20,6 +20,8 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
 
       body: SingleChildScrollView(
+
+
         child: Column(
 
           children: [

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_ecom_app/constants/size_configs.dart';
+import 'package:islami_ecom_app/screens/guest_log_in/guest_Login.dart';
 import 'package:islami_ecom_app/screens/sign_in_page.dart';
 import 'package:islami_ecom_app/screens/sign_up_page.dart';
 
@@ -12,98 +13,101 @@ class WelcomePage extends StatelessWidget {
     double sizeV = SizeConfigure.blockSizeV!;
     double sizeH = SizeConfigure.blockSizeH!;
 
-    return Container(
-      height: sizeV * 100,
-      width: sizeH * 100,
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/images/welcomeImage.png'),
-              colorFilter:
-                  ColorFilter.mode(Colors.black54, BlendMode.hardLight),
-              fit: BoxFit.cover)),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Expanded(
-            flex: 20,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Welcome To Muslim Store',
-                  style: TextStyle(fontSize: sizeH * 5, color: Colors.white),
-                ),
-                SizedBox(
-                  height: sizeV * 5,
-                ),
-                Text(
-                  'Get Started By Logging\n into your account',
-                  style: TextStyle(fontSize: sizeH * 3, color: Colors.white),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(
-                  height: sizeV * 8,
-                ),
-                Padding(
-                  padding: EdgeInsets.all(sizeV * 2),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
+    return Scaffold(
+      backgroundColor: Colors.black87,
+      body: Container(
+        height: sizeV * 100,
+        width: sizeH * 100,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/images/welcomeImage.png'),
+                colorFilter:
+                ColorFilter.mode(Colors.black54, BlendMode.hardLight),
+                fit: BoxFit.cover)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              flex: 20,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Welcome To Muslim Store',
+                    style: TextStyle(fontSize: sizeH * 5, color: Colors.white),
+                  ),
+                  SizedBox(
+                    height: sizeV * 5,
+                  ),
+                  Text(
+                    'Get Started By Logging\n into your account',
+                    style: TextStyle(fontSize: sizeH * 3, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(
+                    height: sizeV * 8,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(sizeV * 2),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
                       ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignInPage()));
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'SIGN IN',
-                            style: TextStyle(color: Colors.amber, fontSize: 18),
-                          ),
-                        ],
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignInPage()));
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'SIGN IN',
+                              style: TextStyle(color: Colors.amber, fontSize: 18),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                CustomButton(
-                  btnName: 'Sign Up',
-                  btnColor: Colors.blueAccent,
-                  textColor: Colors.white,
-                  sizev: sizeV,
-                  onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpPage()));
-                  },
-                ),
-                CustomButton(
-                  onPressed: (){
-
-                  },
-                  sizev: sizeV,
-                  btnName: 'As A Guest',
-                  btnColor: Colors.blueAccent,
-                  textColor: Colors.white,
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              child: Text(
-                "@ 2022, Islamic",
-                style: TextStyle(color: Colors.white),
+                  CustomButton(
+                    btnName: 'Sign Up',
+                    btnColor: Colors.blueAccent,
+                    textColor: Colors.white,
+                    sizev: sizeV,
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpPage()));
+                    },
+                  ),
+                  CustomButton(
+                    onPressed: (){
+                          Navigator.push(context,MaterialPageRoute(builder: (context)=> GuestLogin()));
+                    },
+                    sizev: sizeV,
+                    btnName: 'As A Guest',
+                    btnColor: Colors.blueAccent,
+                    textColor: Colors.white,
+                  ),
+                ],
               ),
             ),
-          )
-        ],
+            Expanded(
+              flex: 1,
+              child: Container(
+                child: Text(
+                  "@ 2022, Islamic",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

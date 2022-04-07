@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:islami_ecom_app/model/onBoarding.dart';
 import 'package:islami_ecom_app/constants/size_configs.dart';
 import '../constants/app_style.dart';
-import 'sign_in_page.dart';
 import 'package:islami_ecom_app/widgets/welcome_page.dart';
 
 
@@ -73,7 +72,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                           ),
                           Text(
                             splashScreenContent[index].title,
-                            style: kTitle,
+                            style: kTitleTextBlack,
                             textAlign: TextAlign.center,
                           ),
                           SizedBox(
