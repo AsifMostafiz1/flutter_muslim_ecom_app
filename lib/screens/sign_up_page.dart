@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_ecom_app/screens/sign_in_page.dart';
 
 import '../constants/size_configs.dart';
 
@@ -123,18 +124,26 @@ class _SignUpPageState extends State<SignUpPage> {
 
 
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children:const [
-                      Text("Don't Have An Account?",style:  TextStyle(
-                        fontSize: 15,
-                      ),),
-                      SizedBox(width: 10,),
-                      Text("Log in",style:  TextStyle(
+                  Padding(
+                    padding: const EdgeInsets.all(26.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children:[
+                        Text("Don't Have An Account?",style:  TextStyle(
                           fontSize: 15,
-                          color: Color(0xFFF9B92E)
-                      ),),
-                    ],
+                        ),),
+                        SizedBox(width: 10,),
+                        InkWell(
+                          onTap: (){
+                            Navigator.push(context,MaterialPageRoute(builder: (builder)=>SignInPage()));
+                          },
+                          child: Text("Log in",style:  TextStyle(
+                              fontSize: 15,
+                              color: Color(0xFFF9B92E)
+                          ),),
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),

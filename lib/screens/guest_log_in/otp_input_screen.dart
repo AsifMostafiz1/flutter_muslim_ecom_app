@@ -72,9 +72,7 @@ class _OtpInputScreenState extends State<OtpInputScreen> {
                   fieldWidth: 40,
                   //activeFillColor: Colors.white,
                 ),
-                //animationDuration: const Duration(milliseconds: 100),
-                //backgroundColor: Colors.blue.shade50,
-                //enableActiveFill: true,
+                //animationDuration: const Duration(milliseconds: 100)
                 controller: textEditingController,
                 // onCompleted: (v) {
                 //   debugPrint("Completed");
