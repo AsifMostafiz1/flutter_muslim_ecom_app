@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami_ecom_app/constants/size_configs.dart';
 import 'package:islami_ecom_app/screens/sign_up_page.dart';
+import 'package:islami_ecom_app/widgets/custom_text_field.dart';
+import 'package:islami_ecom_app/widgets/remember_me_signUp_page.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -11,6 +13,7 @@ class SignInPage extends StatefulWidget {
 
 TextEditingController _emailController = TextEditingController();
 TextEditingController _passwordController = TextEditingController();
+bool _rememberCheck= false;
 bool _showPasswordText = true;
 bool _showEmailText = false;
 
@@ -65,10 +68,7 @@ class _SignInPageState extends State<SignInPage> {
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: [
-                  SizedBox(
-                    height: sizeV * 3,
-                  ),
-                  SignInCustomTextField(
+                  CustomTextField(
                     labelText: "Email Address",
                     hintText: "example@gmail.com",
                     suffixIcon: Icons.email_outlined,
@@ -80,10 +80,7 @@ class _SignInPageState extends State<SignInPage> {
 
                     },
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  SignInCustomTextField(
+                  CustomTextField(
 
                     labelText: "Password",
                     hintText: _showPasswordText?"123456789":"*********",
@@ -101,18 +98,7 @@ class _SignInPageState extends State<SignInPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: [
-                          Checkbox(
-                              value: true,
-                              onChanged: (value) {},
-                              activeColor: Colors.amber,
-                              shape: const CircleBorder()),
-                          const Text('Remember me',
-                              style: TextStyle(
-                                  fontSize: 12, color: Color(0xFF909090))),
-                        ],
-                      ),
+                      RememberMe(rememberCheck: _rememberCheck),
                       InkWell(
                         onTap: () {
                           // Navigator.push(context,
@@ -273,64 +259,7 @@ class _SignInPageState extends State<SignInPage> {
   }
 }
 
-class SignInCustomTextField extends StatelessWidget {
-  SignInCustomTextField(
-      {Key? key,
-      required this.labelText,
-      required this.hintText,
-      required this.suffixIcon,
-      required this.controller,
-      required this.onPressed,
-      required this.textInputType,
-        required this.obscureText,
-       required this.changeTextVisibility,
-      })
-      : super(key: key);
 
-  final String labelText;
-  final String hintText;
-  final IconData suffixIcon;
-  final TextEditingController controller;
-  final VoidCallback onPressed;
-  final VoidCallback changeTextVisibility;
-  final TextInputType textInputType;
-  bool obscureText;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      child: TextField(
-        obscureText: obscureText,
-        controller: controller,
-        cursorColor: Colors.grey,
-        textInputAction: TextInputAction.next,
-        keyboardType: textInputType,
-        decoration: InputDecoration(
-            alignLabelWithHint: true,
-            labelText: labelText,
-            labelStyle: TextStyle(color: Colors.black87, fontSize: 18),
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-            border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey),
-                borderRadius: BorderRadius.circular(10)),
-            enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey),
-                borderRadius: BorderRadius.circular(10)),
-            focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey),
-                borderRadius: BorderRadius.circular(10)),
-            hintText: hintText,
-            suffixIcon: IconButton(
-              color: Colors.grey, icon: Icon(suffixIcon,),
-
-              onPressed: changeTextVisibility
-            ),
-            hintStyle: const TextStyle(fontSize: 14, color: Color(0xFF909090))),
-      ),
-    );
-  }
-}
 
 class MyClipper extends CustomClipper<Path> {
   @override
